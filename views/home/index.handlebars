@@ -1,0 +1,53 @@
+<main>
+  <div class="container">
+    <section class="hero mt-3">
+      <div class="text-center">
+        <h1>To-do List</h1>
+        <p>Criado por Matheus <span class="text-primary">{Victor}</span></p>
+      </div>
+    </section>
+    <section class="listaDeTarefas">
+        <div class="card-body">
+          <div class="table-responsive mt-4">
+            <table class="table admin-table table-hover">
+              <thead class="table-dark">
+                <tr>
+                  <th>Título</th>
+                  <th>Status</th>
+                  <th>Data</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each tarefa}}
+                <tr>
+                  <td>{{titulo}}</td>
+                  <td>
+                    {{#if status}}
+                      <span class="badge bg-success">Concluído</span>
+                    {{else}}
+                      <span class="badge bg-warning text-dark">Pendente</span>
+                    {{/if}}
+                  </td>
+                  <td>{{date}}</td>
+                  <td>
+                    <a href="/create/tarefa/check/{{id}}" class="btn btn-primary btn-sm"><i class="bi bi-check2-square"></i></a>
+                    <a href="" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></a>
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </section>
+  </div>
+</main>
+
+
+
+<!--<form action="/create/tarefa/check" method="POST">
+                      <input type="hidden" name="id" value="id">
+                      <input type="hidden" name="status" value="st">
+                      <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-check2-square"></i></button>
+                    </form>-->
